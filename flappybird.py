@@ -1,6 +1,6 @@
 import pygame
 pygame.init()
 
-win = pygame.display.set_mode((500, 500))
-
-game = pygame.display.set_caption('Flappy Bird')
+TITLE = 'Flappy Bird'
+WIDTH = 400
+HEIGHT = 788
