@@ -1,24 +1,21 @@
 import pygame
+import sys
 pygame.init()
 
 
 #class for background for flappy bird
 class Background:
-    #this will have the image size as private attributes and return the image to the screen
+    #this will have the image size as private attributes and return the image to the screen/ this gets the image. Don't need getter and setter for image in pygame
     def __init__(self, game_background):
-        self.game_background = game_background
-
-        return game_background
-
-    #this containst the background image
-    def get_image(self, background_image):
-        self.background_image = background_image
-
-        background_image = pygame.image.load('flappy_background.png')
-        width, height = pygame.image.get_size()
+        self.image = None
+        try:
+            self.image = pygame.image.load('flappy_background.png')
+        except Exception as e:
+            print('Error loading image:', str(e))
 
 
-    #this gets the size from the intialization; I don't need a private attribute here; use pygame to validate module for getting image size
-    def set_image_size(self, new_size):
-        self.new_size = new_size
-        new_size = pygame.transform.scale(image, (400, 788))
+
+    #this contains the background image
+    def get_image(self):
+        return self.image
+
